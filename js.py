@@ -14,9 +14,13 @@ def show_html(url):
         df = df[2:-5]
         df.columns = header
         df = df.set_index('Tanggal')
-        print(f'jadwal sholat bulan {month_abbr[dt.now().month]} {dt.now().year}')
+        day=dt.now().day
+        day=f'0{day}' if day<10 else f'{day}'
         print()
-        print(df)
+        print(f'jadwal sholat {day}-{month_abbr[dt.now().month]}-{dt.now().year}')
+        print()
+        print(df.T[[day]])
+        print()
     except Exception as e:
         print(f'there is no internet connection or server {URL} is down')
         print(f'\n{e}\n')
