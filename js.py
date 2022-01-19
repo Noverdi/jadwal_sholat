@@ -19,7 +19,8 @@ def show_html(url):
         print()
         print(f'jadwal sholat {day}-{month_abbr[dt.now().month]}-{dt.now().year}')
         print()
-        print(df.T[[day]])
+        js = df.T[[day]]
+        print(js.iloc[0:,:])
         print()
     except Exception as e:
         print(f'there is no internet connection or server {URL} is down')
